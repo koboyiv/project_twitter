@@ -1,2 +1,2 @@
-# project_twitter
-django + fontend
+# project_twitter (social influrencer)
+source code django + fontend
