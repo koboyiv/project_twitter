@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
+.w3-row-padding img {margin-bottom: 12px}
+/* Set the width of the sidebar to 120px */
+.w3-sidebar {width: 120px;background: rgb(130, 182, 241);}
+/* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
+#main {margin-left: 120px}
+/* Remove margins from "page content" on small screens */
+@media only screen and (max-width: 600px) {#main {margin-left: 0}}
+</style>
+       
+<body class="w3-black">
+
+<!-- Icon Bar (Sidebar - hidden on small screens) -->
+<nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
+  <!-- Avatar image in top left corner -->
+  <img src="https://sv1.picz.in.th/images/2019/05/22/wHsn0k.th.png" style="width:100%">
+  <a href="{% url 'index' %}" class="w3-bar-item w3-button w3-padding-large w3-black">
+    <img src="https://sv1.picz.in.th/images/2019/05/22/wHsAbI.md.png" style="width:70%">
+    <p >HOME</p>
+  </a>
+  <a href="{% url 'contact' %}" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+    <img src="https://sv1.picz.in.th/images/2019/05/22/wHsOd8.md.png" style="width:70%">
+    <p>CONTACT</p>
+  </a>
+</nav>
+
+<!-- Page Content -->
+<div class="w3-padding-large" id="main">
+  <!-- Header/Home -->
+  <header class="w3-container w3-padding-32 w3-center" id="home" style="background-color: rgb(130, 182, 241);">
+    <h1 class="w3-jumbo"><span class="w3-hide-small">Social</span> Inferrence.</h1>
+    <p>Special Topic.</p>
+  </header>
+
+  <!-- Portfolio Section -->
+  <div class="w3-padding-64 w3-content" id="photos">
+    <h2 class="w3-text-white">Twitter Account</h2>
+    <hr style="width:250px" class="w3-white">
+
+  <!-- pic -->
+  <style>
+
+    .textImage{
+        width: 300px;
+        height: 300px;
+        display: inline-block;
+        background-size: cover;
+        border-radius: 4px;
+        margin:4px;
+        position: relative;
+        cursor: pointer;
+        font: message-box;/*font*/
+    }
+    
+    .textImage > input{
+        display: none;
+    }
+    .textImage > div,.textImage >h2{
+        position:absolute;
+        background-color:#006699;
+        bottom: 20px;
+        left: 4px;
+        right: 4px;
+        border-radius: 4px;
+        padding: 8px;
+        overflow: hidden;
+        opacity:0;
+        transition:.4s;
+    }
+    .textImage:hover > h2,.textImage > input:checked + h2 +div{
+        bottom:4px;
+        opacity: 1;
+
+    }
+    .textImage > input:checked + h2{
+        bottom: -20px;
+        opacity: 0;
+    }
+    .textImage > h2{
+        margin:0;
+    }
+  </style>
+
+  <!-- end pic css -->
+
+    <!-- Grid for photos -->
+  
+  <div>
+      
+      
+      {% comment %} StampApiwat {% endcomment %}
+      
+      <div>
+      <label class="textImage" style=background-image:url("https://sv1.picz.in.th/images/2019/05/22/wHsJUg.md.jpg")>
+        <input type="checkbox">
+        <h2></h2>
+        {% for d in data %}
+        {% if d.name == 'StampApiwat'%}
+        <div>
+          Original Tweeted Count : {{d.ot1}}<br>
+          Reply Count : {{d.rp1}}<br>
+          Retweeted Count : {{d.rt1}}<br>
+          Favorite Count : {{d.pt1}}<br>
+          Folowers : {{d.f1}}<br>
+          Folowees : {{d.p3}}<br>
+          General Activity :{{d.ga}} <br>
+          Signal Strength : {{d.ss}}<br>
+          Follower Rank : {{d.fr}}<br>
+        </div>
+        {% endif %}
+        {% endfor %}
+      </label>
+
+      
+
+      {% comment %} ThePompam  {% endcomment %}
+      <label class="textImage" style=background-image:url("https://sv1.picz.in.th/images/2019/05/22/wHsajQ.md.jpg")>
+        <input type="checkbox">
+        <h2></h2>
+        {% for d in data %}
+        {% if d.name == 'ThePompam' %}
+        <div>
+          Original Tweeted Count : {{d.ot1}}<br>
+          Reply Count : {{d.rp1}}<br>
+          Retweeted Count : {{d.rt1}}<br>
+          Favorite Count : {{d.pt1}}<br>
+          Folowers : {{d.f1}}<br>
+          Folowees : {{d.p3}}<br>
+          General Activity :{{d.ga}} <br>
+          Signal Strength : {{d.ss}}<br>
+          Follower Rank : {{d.fr}}<br>
+        </div>
+        {% endif %}
+        {% endfor %}
+      </label>
+      
+
+      {% comment %} Chocopal  {% endcomment %}
+      <label class="textImage" style=background-image:url("https://sv1.picz.in.th/images/2019/05/22/wHs8sE.md.jpg")>
+        <input type="checkbox">
+        <h2>
+        </h2>
+        {% for d in data %}
+        {% if d.name == 'Chocopal' %}
+        <div>
+          Original Tweeted Count : {{d.ot1}}<br>
+          Reply Count : {{d.rp1}}<br>
+          Retweeted Count : {{d.rt1}}<br>
+          Favorite Count : {{d.pt1}}<br>
+          Folowers : {{d.f1}}<br>
+          Folowees : {{d.p3}}<br>
+          General Activity :{{d.ga}} <br>
+          Signal Strength : {{d.ss}}<br>
+          Follower Rank : {{d.fr}}<br>
+        </div>
+        {% endif %}
+        {% endfor %}
+      </label>
+      </div>
+      <br>
+      
+
+      <div>
+      {% comment %} justinbieber {% endcomment %}
+      <label class="textImage" style=background-image:url("https://sv1.picz.in.th/images/2019/05/22/wHsCQe.md.jpg")>
+        <input type="checkbox">
+        <h2>
+        </h2>
+        {% for d in data %}
+        {% if d.name == 'justinbieber' %}
+        <div>
+          Original Tweeted Count : {{d.ot1}}<br>
+          Reply Count : {{d.rp1}}<br>
+          Retweeted Count : {{d.rt1}}<br>
+          Favorite Count : {{d.pt1}}<br>
+          Folowers : {{d.f1}}<br>
+          Folowees : {{d.p3}}<br>
+          General Activity :{{d.ga}} <br>
+          Signal Strength : {{d.ss}}<br>
+          Follower Rank : {{d.fr}}<br>
+        </div>
+        {% endif %}
+        {% endfor %}
+      </label>
+
+      {% comment %} johnwinyu {% endcomment %}
+      <label class="textImage" style=background-image:url("https://sv1.picz.in.th/images/2019/05/22/wHsPpP.md.jpg")>
+        <input type="checkbox">
+        <h2>
+        </h2>
+        {% for d in data %}
+        {% if d.name == 'johnwinyu' %}
+        <div>
+          Original Tweeted Count : {{d.ot1}}<br>
+          Reply Count : {{d.rp1}}<br>
+          Retweeted Count : {{d.rt1}}<br>
+          Favorite Count : {{d.pt1}}<br>
+          Folowers : {{d.f1}}<br>
+          Folowees : {{d.p3}}<br>
+          General Activity :{{d.ga}} <br>
+          Signal Strength : {{d.ss}}<br>
+          Follower Rank : {{d.fr}}<br>
+        </div>
+        {% endif %}
+        {% endfor %}
+      </label>
+
+       {% comment %} gamthestar {% endcomment %}
+      <label class="textImage" style=background-image:url("https://sv1.picz.in.th/images/2019/05/22/wHslmu.md.jpg")>
+        <input type="checkbox">
+        <h2>
+        </h2>
+        {% for d in data %}
+        {% if d.name == 'gamthestar' %}
+        <div>
+          Original Tweeted Count : {{d.ot1}}<br>
+          Reply Count : {{d.rp1}}<br>
+          Retweeted Count : {{d.rt1}}<br>
+          Favorite Count : {{d.pt1}}<br>
+          Folowers : {{d.f1}}<br>
+          Folowees : {{d.p3}}<br>
+          General Activity :{{d.ga}} <br>
+          Signal Strength : {{d.ss}}<br>
+          Follower Rank : {{d.fr}}<br>
+        </div>
+        {% endif %}
+        {% endfor %}
+      </label>
+      </div>
+      <br>
+
+      <div>
+      {% comment %} EmmaWatson {% endcomment %}
+      <label class="textImage" style=background-image:url("https://sv1.picz.in.th/images/2019/05/22/wHsbZR.md.jpg")>
+        <input type="checkbox">
+        <h2>
+        </h2>
+        {% for d in data %}
+        {% if d.name == 'EmmaWatson' %}
+        <div>
+          Original Tweeted Count : {{d.ot1}}<br>
+          Reply Count : {{d.rp1}}<br>
+          Retweeted Count : {{d.rt1}}<br>
+          Favorite Count : {{d.pt1}}<br>
+          Folowers : {{d.f1}}<br>
+          Folowees : {{d.p3}}<br>
+          General Activity :{{d.ga}} <br>
+          Signal Strength : {{d.ss}}<br>
+          Follower Rank : {{d.fr}}<br>
+        </div>
+        {% endif %}
+        {% endfor %}
+      </label>
+
+      {% comment %} realDonaldTrump {% endcomment %}
+      <label class="textImage" style=background-image:url("https://sv1.picz.in.th/images/2019/05/22/wHsqQq.md.jpg")>
+        <input type="checkbox">
+        <h2>
+        </h2>
+        {% for d in data %}
+        {% if d.name == 'realDonaldTrump' %}
+        <div>
+          Original Tweeted Count : {{d.ot1}}<br>
+          Reply Count : {{d.rp1}}<br>
+          Retweeted Count : {{d.rt1}}<br>
+          Favorite Count : {{d.pt1}}<br>
+          Folowers : {{d.f1}}<br>
+          Folowees : {{d.p3}}<br>
+          General Activity :{{d.ga}} <br>
+          Signal Strength : {{d.ss}}<br>
+          Follower Rank : {{d.fr}}<br>
+        </div>
+        {% endif %}
+        {% endfor %}
+      </label>
+
+      {% comment %} ArianaGrande {% endcomment %}
+      <label class="textImage" style=background-image:url("https://sv1.picz.in.th/images/2019/05/22/wHsRbb.md.jpg")>
+        <input type="checkbox">
+        <h2>
+        </h2>
+        {% for d in data %}
+        {% if d.name == 'ArianaGrande' %}
+        <div>
+          Original Tweeted Count : {{d.ot1}}<br>
+          Reply Count : {{d.rp1}}<br>
+          Retweeted Count : {{d.rt1}}<br>
+          Favorite Count : {{d.pt1}}<br>
+          Folowers : {{d.f1}}<br>
+          Folowees : {{d.p3}}<br>
+          General Activity :{{d.ga}} <br>
+          Signal Strength : {{d.ss}}<br>
+          Follower Rank : {{d.fr}}<br>
+        </div>
+        {% endif %}
+        {% endfor %}
+      </label>
+      </div>
+      <br>
+
+      
+
+      <div>
+      {% comment %} blank label {% endcomment %}
+      <label class="textImage" style=background-image:url()>
+      </label>
+
+      {% comment %} AjarnAdam {% endcomment %}
+      <label class="textImage" style=background-image:url("https://sv1.picz.in.th/images/2019/05/22/wHscm9.md.jpg")>
+        <input type="checkbox">
+        <h2>
+        </h2>
+        {% for d in data %}
+        {% if d.name == 'AjarnAdam' %}
+        <div>
+          Original Tweeted Count : {{d.ot1}}<br>
+          Reply Count : {{d.rp1}}<br>
+          Retweeted Count : {{d.rt1}}<br>
+          Favorite Count : {{d.pt1}}<br>
+          Folowers : {{d.f1}}<br>
+          Folowees : {{d.p3}}<br>
+          General Activity :{{d.ga}} <br>
+          Signal Strength : {{d.ss}}<br>
+          Follower Rank : {{d.fr}}<br>
+        </div>
+        {% endif %}
+        {% endfor %}
+      </label>
+      </div>
+    
+   
+    <!-- End photo grid -->
+    </div>
+   
+  <!-- End Portfolio Section -->
+  </div>
+  
+
+</body>
+
+</html>
